@@ -1,20 +1,22 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
-import MainPage from './pages/MainPage'
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import MainPage from './pages/MainPage';
+import RoutinePage from './pages/RoutinePage';
 
-const App = () => {
+export type RootStackParamList = {
+  MainPage: undefined;
+  RoutinePage: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
+
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>App</Text>
-      <MainPage/>
-    </View>
-  )
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="MainPage">
+        <Stack.Screen name="MainPage" component={MainPage} />
+        <Stack.Screen name="RoutinePage" component={RoutinePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
-
-export default App
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, // Заполняем весь экран
-  },
-});

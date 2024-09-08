@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View, Button, Image } from 'react-native'
 import React, { useState } from 'react'
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker'
+import { useNavigation, NavigationProp } from '@react-navigation/native'; // Для навигации
+import { RootStackParamList } from '../App'; // Импортируй типы стека
 
 export default function MainPage() {
 
     const [photo, setPhoto] = useState<{ uri: string } | null>(null); // Определяем тип для состояния
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
     const takePhoto = () => {
       launchCamera(
@@ -48,7 +51,15 @@ export default function MainPage() {
       <Text style={styles.title}>Главная страница</Text>
       <Button title="Сделать фото" onPress={takePhoto} /> 
       <Button title="Выбрать из галереи" onPress={chooseFromLibrary} /> 
-      {photo && <Image source={photo} style={styles.image} />}
+      {photo && (
+        <>
+          <Image source={photo} style={styles.image} />
+          <Button
+            title="Next"
+            onPress={() => navigation.navigate('RoutinePage')} // Переход на страницу рутины
+          />
+        </>
+      )}
     </View>
   );
 }
