@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native'
 import React, {useState} from 'react'
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../App';
 
 export default function RoutinePage() {
 
     const [product, setProduct] = useState('');
     const [productList, setProductList] = useState<string[]>([]);
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
     const addnewProduct = () => {
         if(product.trim()) {
@@ -39,6 +42,11 @@ export default function RoutinePage() {
                 </View>
             )}
             keyExtractor={(_, index) => index.toString()}
+        />
+
+        <Button
+          title="See Result"
+          onPress={() => navigation.navigate('ResultPage')} // Переход на ResultPage
         />
     </View>
   )
