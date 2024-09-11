@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainPage from './pages/MainPage';
 import RoutinePage from './pages/RoutinePage';
 import ResultPage from './pages/ResultPage';
+import { RoutineProvider } from './services/RoutineContext';
 
 export type RootStackParamList = {
   MainPage: undefined;
@@ -14,12 +15,14 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainPage">
-        <Stack.Screen name="MainPage" component={MainPage} />
-        <Stack.Screen name="RoutinePage" component={RoutinePage} />
-        <Stack.Screen name="ResultPage" component={ResultPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <RoutineProvider> 
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="MainPage">
+          <Stack.Screen name="MainPage" component={MainPage} />
+          <Stack.Screen name="RoutinePage" component={RoutinePage} />
+          <Stack.Screen name="ResultPage" component={ResultPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </RoutineProvider>
   );
 }
