@@ -38,10 +38,9 @@ export const getSkincareAdvice = async (photoUri: string, routine: string) => {
       ],
     });
 
-    console.log('Response:', response.choices[0].message.content);
+    return response.choices[0].message.content; // Return the GPT response
   } catch (error) {
     console.error('Error with GPT API:', error);
+    return null;
   }
 };
-
-getSkincareAdvice(" ", " ");
