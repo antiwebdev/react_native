@@ -12,10 +12,8 @@ async function askAboutImage(imageFilePath) {
 
   try {
     const imageBuffer = await fs.readFile(imageFilePath);
-
     const base64Image = imageBuffer.toString('base64');
     const encodedImage = `data:image/jpeg;base64,{${base64Image}}`;
-
     const response = await openai.chat.completions.create({
         model: "gpt-4o",
         messages: [
@@ -30,9 +28,9 @@ async function askAboutImage(imageFilePath) {
         max_tokens: 1024,
     });
 
-    console.log(response.choices[0].message);
+    console.log(response.choices[0].message.content);
 
-    const responseMessage = response.choices[0].message;
+    const responseMessage = response.choices[0].message.content;
     return responseMessage;
 
   } catch (error) {

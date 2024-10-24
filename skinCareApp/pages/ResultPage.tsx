@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, {useContext} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { RoutineContext } from '../services/RoutineContext';
 import { getSkincareAdvice } from '../services/gptApi';
 
@@ -8,6 +8,7 @@ import { getSkincareAdvice } from '../services/gptApi';
 export default function ResultPage() {
 
   const routineContext = useContext(RoutineContext);
+  const [response, setResponse] = useState<string | null>(null);
 
   if (!routineContext) {
     return <Text>Контекст не найден!</Text>;
@@ -15,11 +16,21 @@ export default function ResultPage() {
 
   const {productList, photo} = routineContext;
 
-  const response = photo
-  ? getSkincareAdvice("iamge of regular person", productList.join(', '))
-  : null;
+  
 
-  console.log(response);
+  useEffect(() => {
+    const fetchSkincareAdvice = async () => {
+      if (photo) {
+        const advice = await getSkincareAdvice(photo.uri, productList.join(', '));
+        setResponse(advice);
+        console.log("Api response:" + response);
+      }
+    };
+
+    fetchSkincareAdvice();
+  }, [photo, productList]);
+
+  
 
   return (
     
@@ -28,7 +39,7 @@ export default function ResultPage() {
         <Text>Result</Text>
       </View>
       <View style={styles.resultText}>
-        <Text>Respons from api</Text>
+        <Text>{response ? response : "Waiting for response..."}</Text>
       </View>
     </View>
   )

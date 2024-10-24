@@ -48,7 +48,8 @@ export default function MainPage() {
           console.log('Ошибка ImagePicker: ', response.errorMessage);
         } else if (response.assets && response.assets.length > 0 && response.assets[0].uri) {
           const source = { uri: response.assets[0].uri }; // Проверяем наличие uri
-          setPhoto(source); // Сохраняем изображение в состояние
+          setPhoto(source);// Сохраняем изображение в состояние
+          console.log("Photo is : " + source)
         }
       }
     );
