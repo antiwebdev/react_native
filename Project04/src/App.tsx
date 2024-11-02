@@ -43,9 +43,12 @@ const Dice = ({imageUrl}: DiceProps):JSX.Element => {
 function App(): React.JSX.Element {
 
   const [diceImg, setDiceImg] = useState<ImageSourcePropType>(DiceOne);
+  const [secodDiceImg, setSecondDiceImg] = useState<ImageSourcePropType>(DiceOne);
 
   const rollDice = () => {
     let randomNum = Math.floor(Math.random()*6) + 1;
+    let secondRandomNum = Math.floor(Math.random()*6) + 1;
+
     switch (randomNum) {
       case 1:
         setDiceImg(DiceOne);
@@ -69,13 +72,39 @@ function App(): React.JSX.Element {
         setDiceImg(DiceOne);
         break;
     }
+
+    switch (secondRandomNum) {
+      case 1:
+        setSecondDiceImg(DiceOne);
+        break;
+      case 2:
+        setSecondDiceImg(DiceTwo);
+        break;
+      case 3:
+        setSecondDiceImg(DiceThree);
+        break;
+      case 4:
+        setSecondDiceImg(DiceFour);
+        break;
+      case 5:
+        setSecondDiceImg(DiceFive);
+        break;
+      case 6:
+        setSecondDiceImg(DiceSix);
+        break;
+      default:
+        setSecondDiceImg(DiceOne);
+        break;
+    }
+    
     ReactNativeHapticFeedback.trigger("impactLight", options);
-    console.log(randomNum)
+    console.log(randomNum, secondRandomNum)
   }
   
   return (
     <View style={styles.container}>
       <Dice imageUrl={diceImg}/>
+      <Dice imageUrl={secodDiceImg}/>
       <Pressable onPress={rollDice} style={styles.btn}><Text>Roll</Text></Pressable>
     </View>
   );
