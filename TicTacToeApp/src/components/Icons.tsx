@@ -21,12 +21,6 @@ const Icons = ({name} : IconsProps) => {
         default:
           return <Icon name="pencil" size={38} color="#0D0D0D"/>
     }
-
-  return (
-    <View>
-      <Text>Icons</Text>s
-    </View>
-  )
 }
 
 export default Icons;
