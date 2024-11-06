@@ -105,8 +105,7 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView>
-      <StatusBar/>
-      // Winner/Turn Section
+      {/* Winner/Turn Section */}
       {gameWinner ? (
         <View style={[styles.playerInfo, styles.winnerInfo]}>
           <Text style={styles.winnerTxt}>{gameWinner}</Text>
@@ -116,7 +115,7 @@ function App(): React.JSX.Element {
           <Text style={styles.gameTurnTxt}>Player {isCross ? 'X' : 'O'}</Text>
         </View>
       )}
-      //Game Section
+      {/* Game Section */}
       <FlatList
         numColumns={3}
         data={gameState}
@@ -131,7 +130,7 @@ function App(): React.JSX.Element {
         )}
         style={styles.grid}
       />
-      //Restar Section
+      {/* Restar Section */}
       <View>
         <Pressable
           style={styles.gameBtn}
