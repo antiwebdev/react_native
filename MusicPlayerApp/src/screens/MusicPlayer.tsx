@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, Image } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, Image, FlatList } from 'react-native'
 import React, {useState} from 'react'
 import TrackPlayer, {Event, Track, useTrackPlayerEvents} from 'react-native-track-player';
 import { playListData } from '../constants';
@@ -20,9 +20,6 @@ const MusicPlayer = () => {
                 const playingTrack = await TrackPlayer.getActiveTrack(event.nextTrack);
                 setTrack(playingTrack)
                 break;
-        
-            default:
-                break;
         }
     }) 
 
@@ -32,10 +29,10 @@ const MusicPlayer = () => {
                 <View style={styles.albumContainer}>
                     {track?.artwork && (
                         <Image
-                        style={styles.albumArtImg}
-                        source={{
-                            uri: track?.album?.toString()
-                        }}
+                            style={styles.albumArtImg}
+                            source={{
+                                uri: track?.album?.toString()
+                            }}
                         />
                     )}
                 </View>
@@ -44,8 +41,16 @@ const MusicPlayer = () => {
     }
 
   return (
-    <View>
-      <Text>MusicPlayer</Text>
+    <View style={styles.container}>
+      <FlatList
+      horizontal
+      data={playListData}
+      renderItem={renderArtWork}
+      keyExtractor={song => song.id.toString()}
+      />
+      <SongInfo track={track}/>
+      <SongSlider/>
+      <ControlCenter/>
     </View>
   )
 }

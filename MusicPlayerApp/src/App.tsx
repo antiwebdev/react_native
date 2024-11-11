@@ -3,12 +3,14 @@ import type {PropsWithChildren} from 'react';
 import {
   ActivityIndicator,
   SafeAreaView,
+  StatusBar,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
 import { setupPlayer, addTrack } from '../musicPlayerServices';
+import MusicPlayer from './screens/MusicPlayer';
 
 
 function App(): React.JSX.Element {
@@ -38,8 +40,10 @@ function App(): React.JSX.Element {
   }
   
   return (
-    <SafeAreaView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <StatusBar barStyle={"light-content"}/>
+      <MusicPlayer/>
+    </View>
   );
 }
 
