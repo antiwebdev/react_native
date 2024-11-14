@@ -1,10 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Home = () => {
+//Navigation
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../App'
+
+type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>
+
+const Home = ({navigation}: HomeProps) => {
   return (
-    <View>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>HomeScreen</Text>
+      <Button
+      title = "See Details"
+      onPress={() => navigation.navigate('Details', {productId: '33'})}
+      />
     </View>
   )
 }
