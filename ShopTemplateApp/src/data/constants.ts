@@ -4,8 +4,8 @@ export const PRODUCTS_LIST: Product[] = [
       name: 'APPLE iPhone 14 (Blue, 128 GB)',
       imageUrl:
         'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-      originalPrice: 79990,
-      discountPrice: 65999,
+      originalPrice: 990,
+      discountPrice: 900,
       offerPercentage: 17,
       rating: 4.7,
       ratingCount: 8794,
@@ -20,8 +20,8 @@ export const PRODUCTS_LIST: Product[] = [
       name: 'APPLE iPhone 14 (Starlight, 256 GB)',
       imageUrl:
         'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg',
-      originalPrice: 89900,
-      discountPrice: 75999,
+      originalPrice: 900,
+      discountPrice: 799,
       offerPercentage: 15,
       rating: 4.7,
       ratingCount: 8794,
@@ -32,8 +32,8 @@ export const PRODUCTS_LIST: Product[] = [
       name: 'APPLE iPhone 14 (Purple, 128 GB)',
       imageUrl:
         'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/b/u/f/-original-imaghxa5hvapbfds.jpeg',
-      originalPrice: 79990,
-      discountPrice: 66999,
+      originalPrice: 990,
+      discountPrice: 899,
       offerPercentage: 16,
       rating: 4.7,
       ratingCount: 8794,
@@ -44,8 +44,8 @@ export const PRODUCTS_LIST: Product[] = [
       name: 'APPLE iPhone 11 (White, 64 GB)',
       imageUrl:
         'https://rukminim1.flixcart.com/image/300/400/k2jbyq80pkrrdj/mobile-refurbished/k/y/d/iphone-11-256-u-mwm82hn-a-apple-0-original-imafkg25mhaztxns.jpeg',
-      originalPrice: 43900,
-      discountPrice: 38999,
+      originalPrice: 900,
+      discountPrice: 799,
       offerPercentage: 11,
       rating: 4.6,
       ratingCount: 180810,
