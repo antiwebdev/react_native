@@ -16,25 +16,25 @@ const ProductItem = ({product}: ProductPrors) => {
         <Text style={styles.name}>{product.name}</Text>
 
         <View style={[styles.rowContainer, styles.ratingContainer]}>
-            <View style={styles.rating}>
-                <Text style={styles.ratingText}>{product.rating} ★</Text>
-            </View>
+          <View style={styles.rating}>
+              <Text style={styles.ratingText}>{product.rating} ★</Text>
+          </View>
             <Text style={styles.ratingCount}>
                 ({product.ratingCount.toLocaleString()})
             </Text>
-            </View>
-            
-            <View style={[styles.rowContainer, styles.priceContainer]}>
-                <Text style={styles.originalPrice}>
-                    ${product.originalPrice.toLocaleString()}
-                </Text>
-                <Text style={styles.discountPrice}>
-                    ${product.discountPrice.toLocaleString()}
-                </Text>
-                <Text style={styles.offerPercentage}>
-                    %{product.offerPercentage} off
-                </Text>
-        </View>
+          </View>
+          
+          <View style={[styles.rowContainer, styles.priceContainer]}>
+            <Text style={styles.originalPrice}>
+                ${product.originalPrice.toLocaleString()}
+            </Text>
+            <Text style={styles.discountPrice}>
+                ${product.discountPrice.toLocaleString()}
+            </Text>
+            <Text style={styles.offerPercentage}>
+                %{product.offerPercentage} off
+            </Text>
+          </View>
       </View>
     </View>
   )
