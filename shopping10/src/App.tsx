@@ -21,14 +21,14 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen
-        name="Home"
+        name='Home'
         component={Home}
         options={{
           title: "Trending Products"
         }}
         />
         <Stack.Screen
-        name="Details"
+        name='Details'
         component={Details}
         options={{
           title: "Product details"
