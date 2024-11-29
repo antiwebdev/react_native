@@ -27,10 +27,10 @@ const Details = ({route}: DetailsProps) => {
             
             <View style={[styles.rowContainer, styles.priceContainer]}>
                 <Text style={styles.originalPrice}>
-                    ₹{product.originalPrice.toLocaleString()}
+                    ${product.originalPrice.toLocaleString()}
                 </Text>
                 <Text style={styles.discountPrice}>
-                    ₹{product.discountPrice.toLocaleString()}
+                    ${product.discountPrice.toLocaleString()}
                 </Text>
                 <Text style={styles.offerPercentage}>
                     %{product.offerPercentage} off
